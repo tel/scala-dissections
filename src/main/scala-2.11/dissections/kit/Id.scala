@@ -12,7 +12,7 @@ object Id {
   implicit object dissectionsIdDiss extends Di[Id] {
     type Aux[X, Y] = One2[X, Y]
 
-    def right[J, C](in: Either[Id[J], (One2[C, J], C)]): Either[(J, One2[C, J]), Id[C]] =
+    def right[C, J](in: Either[Id[J], (One2[C, J], C)]): Either[(J, One2[C, J]), Id[C]] =
       in match {
         case Left(Id(j)) => Left[(J, One2[C, J]), Id[C]]((j, one2))
         case Right((one, clown)) => Right(Id(clown))

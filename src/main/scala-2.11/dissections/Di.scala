@@ -28,7 +28,7 @@ abstract class Di[T[_]: Functor] {
     * new clown to insert we creep rightward ending up either with one new
     * joker and another dissected state or `T[C]`, the type filled with clowns.
     */
-  def right[J, C](in: Either[T[J], (Aux[C, J], C)]): Either[(J, Aux[C, J]), T[C]]
+  def right[C, J](in: Either[T[J], (Aux[C, J], C)]): Either[(J, Aux[C, J]), T[C]]
 
   /**
     * If the jokers and clowns are the same then we can just fill the hole to

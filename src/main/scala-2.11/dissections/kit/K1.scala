@@ -19,7 +19,7 @@ object K1 {
     new Di[K1[A, ?]] {
       type Aux[X, Y] = Zero2[X, Y]
 
-      def right[J, C](in: Either[K1[A, J], (Zero2[C, J], C)]): Either[(J, Zero2[C, J]), K1[A, C]] =
+      def right[C, J](in: Either[K1[A, J], (Zero2[C, J], C)]): Either[(J, Zero2[C, J]), K1[A, C]] =
         in match {
           case Left(k) => Right(k.magic)
           case Right((zero, clown)) => NothingIsMagic(zero.a).magic
